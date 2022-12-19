@@ -14,9 +14,11 @@ a는 자신보다 두 칸, 네 칸 앞에 a가 있습니다. 이 중 가까운 �
 function solution(s) {
     var answer = [];
     
-    for(let i = 0; i < s.length; i++){
-        answer[i] = -1;
-    }
+//     for(let i = 0; i < s.length; i++){
+//         answer[i] = -1;
+//     }
+    
+    answer = Array.from({length: strLength}, (v,i) => -1)
     
     for(let i = 1; i < s.length; i++){
         for(let j = 0; j < i; j++){
