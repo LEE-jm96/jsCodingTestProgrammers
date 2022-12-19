@@ -18,7 +18,7 @@ function solution(s) {
 //         answer[i] = -1;
 //     }
     
-    answer = Array.from({length: strLength}, (v,i) => -1)
+    answer = Array.from({length: s.length}, (v,i) => -1)
     
     for(let i = 1; i < s.length; i++){
         for(let j = 0; j < i; j++){
