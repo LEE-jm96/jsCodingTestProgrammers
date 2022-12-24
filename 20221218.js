@@ -18,7 +18,8 @@ function solution(s) {
 //         answer[i] = -1;
 //     }
     
-    answer = Array.from({length: s.length}, (v,i) => -1)
+//     answer = Array.from({length: s.length}, (v,i) => -1)
+    answer = Array.from({length: s.length}).fill(-1); // 가장 괜찮은 방법인듯?
     
     for(let i = 1; i < s.length; i++){
         for(let j = 0; j < i; j++){
