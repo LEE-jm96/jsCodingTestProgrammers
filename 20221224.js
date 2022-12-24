@@ -16,7 +16,7 @@ function solution(k, score) {
         copyScore.push(score[i]);
         
         if(i >= k){
-            copyScore.sort((a, b) => a - b);
+            copyScore.sort((a, b) => a - b); // sort()는 1, 10 ,3 , 5 아스키 순으로 정렬 주의
             copyScore.shift();
         }
     
