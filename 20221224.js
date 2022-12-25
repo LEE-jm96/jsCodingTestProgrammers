@@ -10,7 +10,7 @@ k일 다음부터는 출연 가수의 점수가 기존의 명예의 전당 목�
 
 function solution(k, score) {
     var answer = [];
-    let copyScore = [];
+    const copyScore = [];
     
     for(let i = 0; i < score.length; i++){
         copyScore.push(score[i]);
