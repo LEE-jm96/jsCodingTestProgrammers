@@ -22,12 +22,12 @@ function solution(number, limit, power) {
     let divisorCnt = 0;
     
     for(let i = 1; i <= number; i++){
-        for(let j = 1; j <= i / 2; j++){
+        for(let j = 1; j <= i / 2; j++){ // 약수는 자기자신 빼고 i / 2를 넘을 수 없다 -> 시간초과 걸림...
             if(i % j === 0){
                 divisorCnt++;
             }
         }
-        divisor.push(divisorCnt + 1);
+        divisor.push(divisorCnt + 1); // 자기 자신 갯수 더해줌
         divisorCnt = 0;
     }
     
