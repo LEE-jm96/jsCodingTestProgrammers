@@ -19,24 +19,23 @@
 */
 
 function solution(k, m, score) {
-    var answer = 0;
+    let maxProfit = 0;
     
     const allBox = [];
-    let oneBox = [];
+    const oneBox = [];
     
-    score.sort();
-    score.reverse();
+    score.sort().reverse();
     
     for(let i = 0; i < score.length; i++){
         oneBox.push(score[i])
         if((i+1) % m === 0){
             let boxSum = Math.min(...oneBox) * m // Math.min에는 배열이 아니라 요소가 들어간다. Math.min(oneBox) => NaN
             allBox.push(boxSum);
-            oneBox = [];
+            oneBox.length = 0;
         }
     }
     
-    answer = allBox.length !== 0 ? allBox.reduce((a, b) => a + b, 0) : 0
+    maxProfit = allBox.length !== 0 ? allBox.reduce((a, b) => a + b, 0) : 0
     
-    return answer;
+    return maxProfit;
 }
