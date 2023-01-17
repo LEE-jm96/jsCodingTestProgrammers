@@ -14,3 +14,22 @@ function solution(n) {
     
     return answer;
 }
+
+// 메소드 몰랐을 때 정민 풀이
+// function solution(n) {
+//     let answer = 0;
+//     let 삼진법 = "";
+    
+//     while(n >= 3){
+//         삼진법 += n % 3;
+//         n = Math.floor(n / 3);
+//     }
+    
+//     삼진법 = 삼진법 + n;
+    
+//     for(let i = 0; i < 삼진법.length; i++){
+//         answer += Number(삼진법[i] * Math.pow(3, 삼진법.length - i - 1))
+//     }
+    
+//     return answer;
+// }
