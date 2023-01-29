@@ -15,127 +15,62 @@ Single(S), Double(D), Triple(T)은 점수마다 하나씩 존재한다.
 0~10의 정수와 문자 S, D, T, *, #로 구성된 문자열이 입력될 시 총점수를 반환하는 함수를 작성하라.
 */
 
+let starCnt = 0;
+
 function solution(dart) {
-    let answer = [];
-    let starCnt = 0;
+    const answer = [];
     
     for(let i = 0; i < dart.length; i++){
         if(dart[i] === "S"){
-            if(dart[i-2] === "1"){
-                if(dart[i+1] === "#"){
-                    answer.push(Math.pow(10,1) * -1)
-                    starCnt++;
-                }else if(dart[i+1] === "*"){
-                    if(answer.length === 0){
-                        answer.push(Math.pow(10,1) * 2)
-                        starCnt++;
-                    } 
-                    else{
-                        answer[starCnt-1] = answer[starCnt-1] * 2;
-                        answer.push(Math.pow(10,1) * 2);
-                        starCnt++;
-                    }
-                }else{
-                    answer.push(Math.pow(10,1))
-                    starCnt++;
-                }
-            }else{
-                if(dart[i+1] === "#"){
-                    answer.push(Math.pow(dart[i-1],1) * -1)
-                    starCnt++;
-                }else if(dart[i+1] === "*"){
-                    if(answer.length === 0){
-                        answer.push(Math.pow(dart[i-1],1) * 2)
-                        starCnt++;
-                    }
-                    else{
-                        answer[starCnt-1] = answer[starCnt-1] * 2;
-                        answer.push(Math.pow(dart[i-1],1) * 2);
-                        starCnt++;
-                    }
-                }else{
-                    answer.push(Math.pow(dart[i-1],1))
-                    starCnt++;
-                }
-            }
+            calculateDartScore(dart, "S", i, answer);
         }else if(dart[i] === "D"){
-            if(dart[i-2] === "1"){
-                if(dart[i+1] === "#"){
-                    answer.push(Math.pow(10,2) * -1)
-                    starCnt++;
-                }else if(dart[i+1] === "*"){
-                    if(answer.length === 0){
-                        answer.push(Math.pow(10,2) * 2)
-                        starCnt++;
-                    } 
-                    else{
-                        answer[starCnt-1] = answer[starCnt-1] * 2;
-                        answer.push(Math.pow(10,2) * 2);
-                        starCnt++;
-                    }
-                }else{
-                    answer.push(Math.pow(10,2))
-                    starCnt++;
-                }
-            }else{
-                if(dart[i+1] === "#"){
-                    answer.push(Math.pow(dart[i-1],2) * -1)
-                    starCnt++;
-                }else if(dart[i+1] === "*"){
-                    if(answer.length === 0) {
-                        answer.push(Math.pow(dart[i-1],2) * 2)
-                        starCnt++;
-                    }
-                    else{
-                        answer[starCnt-1] = answer[starCnt-1] * 2;
-                        answer.push(Math.pow(dart[i-1],2) * 2);
-                        starCnt++;
-                    }
-                }else{
-                    answer.push(Math.pow(dart[i-1],2))
-                    starCnt++;
-                }
-            }
+            calculateDartScore(dart, "D", i, answer);
         }else if(dart[i] === "T"){
-             if(dart[i-2] === "1"){
-                if(dart[i+1] === "#"){
-                    answer.push(Math.pow(10,3) * -1)
-                    starCnt++;
-                }else if(dart[i+1] === "*"){
-                    if(answer.length === 0){
-                        answer.push(Math.pow(10,3) * 2)
-                        starCnt++;
-                    } 
-                    else{
-                        answer[starCnt-1] = answer[starCnt-1] * 2;
-                        answer.push(Math.pow(10,3) * 2);
-                        starCnt++;
-                    }
-                }else{
-                    answer.push(Math.pow(10,3))
-                    starCnt++;
-                }
-            }else{
-                if(dart[i+1] === "#"){
-                    answer.push(Math.pow(dart[i-1],3) * -1)
-                    starCnt++;
-                }else if(dart[i+1] === "*"){
-                    if(answer.length === 0) {
-                        answer.push(Math.pow(dart[i-1],3) * 2)
-                        starCnt++;
-                    }
-                    else{
-                        answer[starCnt-1] = answer[starCnt-1] * 2;
-                        answer.push(Math.pow(dart[i-1],3) * 2);
-                        starCnt++;
-                    }
-                }else{
-                    answer.push(Math.pow(dart[i-1],3))
-                    starCnt++;
-                }
-            }
+            calculateDartScore(dart, "T", i, answer);
         }
     }
     
     return answer.reduce((acc,cur) => acc + cur, 0);
+}
+
+const calculateDartScore = (dart, scoreType, i, answer) => {
+    let score = scoreType === "S" ? 1 : scoreType === "D" ? 2 : 3;
+    
+    if(dart[i-2] === "1"){
+        if(dart[i+1] === "#"){
+            answer.push(Math.pow(10, score) * -1);
+            starCnt++;
+        }else if(dart[i+1] === "*"){
+            if(answer.length === 0){
+                answer.push(Math.pow(10, score) * 2);
+                starCnt++;
+            } 
+            else{
+                answer[starCnt-1] = answer[starCnt-1] * 2;
+                answer.push(Math.pow(10, score) * 2);
+                starCnt++;
+            }
+        }else{
+            answer.push(Math.pow(10, score));
+            starCnt++;
+        }
+    }else{
+        if(dart[i+1] === "#"){
+            answer.push(Math.pow(dart[i-1], score) * -1);
+            starCnt++;
+        }else if(dart[i+1] === "*"){
+            if(answer.length === 0){
+                answer.push(Math.pow(dart[i-1], score) * 2);
+                starCnt++;
+            }
+            else{
+                answer[starCnt-1] = answer[starCnt-1] * 2;
+                answer.push(Math.pow(dart[i-1], score) * 2);
+                starCnt++;
+            }
+        }else{
+            answer.push(Math.pow(dart[i-1], score));
+            starCnt++;
+        }
+    }
 }
