@@ -22,18 +22,18 @@ function solution(dart) {
     
     for(let i = 0; i < dart.length; i++){
         if(dart[i] === "S"){
-            calculateDartScore(dart, "S", i, answer);
+            calculateByScore(dart, "S", i, answer);
         }else if(dart[i] === "D"){
-            calculateDartScore(dart, "D", i, answer);
+            calculateByScore(dart, "D", i, answer);
         }else if(dart[i] === "T"){
-            calculateDartScore(dart, "T", i, answer);
+            calculateByScore(dart, "T", i, answer);
         }
     }
     
     return answer.reduce((acc,cur) => acc + cur, 0);
 }
 
-const calculateDartScore = (dart, scoreType, i, answer) => {
+const calculateByScore = (dart, scoreType, i, answer) => {
     let score = scoreType === "S" ? 1 : scoreType === "D" ? 2 : 3;
     
     if(dart[i-2] === "1"){
