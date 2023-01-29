@@ -37,40 +37,29 @@ const calculateDartScore = (dart, scoreType, i, answer) => {
     let score = scoreType === "S" ? 1 : scoreType === "D" ? 2 : 3;
     
     if(dart[i-2] === "1"){
-        if(dart[i+1] === "#"){
-            answer.push(Math.pow(10, score) * -1);
+        calculateByIs10(dart, score, i, answer, "10");
+    }else{
+        calculateByIs10(dart, score, i, answer, "한 자리 수");
+    }
+}
+
+const calculateByIs10 = (dart, score, i, answer, str) => {
+    let num = str === "10" ? 10 : dart[i-1];
+    if(dart[i+1] === "#"){
+        answer.push(Math.pow(num, score) * -1);
+        starCnt++;
+    }else if(dart[i+1] === "*"){
+        if(answer.length === 0){
+            answer.push(Math.pow(num, score) * 2);
             starCnt++;
-        }else if(dart[i+1] === "*"){
-            if(answer.length === 0){
-                answer.push(Math.pow(10, score) * 2);
-                starCnt++;
-            } 
-            else{
-                answer[starCnt-1] = answer[starCnt-1] * 2;
-                answer.push(Math.pow(10, score) * 2);
-                starCnt++;
-            }
-        }else{
-            answer.push(Math.pow(10, score));
+        } 
+        else{
+            answer[starCnt-1] = answer[starCnt-1] * 2;
+            answer.push(Math.pow(num, score) * 2);
             starCnt++;
         }
     }else{
-        if(dart[i+1] === "#"){
-            answer.push(Math.pow(dart[i-1], score) * -1);
-            starCnt++;
-        }else if(dart[i+1] === "*"){
-            if(answer.length === 0){
-                answer.push(Math.pow(dart[i-1], score) * 2);
-                starCnt++;
-            }
-            else{
-                answer[starCnt-1] = answer[starCnt-1] * 2;
-                answer.push(Math.pow(dart[i-1], score) * 2);
-                starCnt++;
-            }
-        }else{
-            answer.push(Math.pow(dart[i-1], score));
-            starCnt++;
-        }
+        answer.push(Math.pow(num, score));
+        starCnt++;
     }
 }
