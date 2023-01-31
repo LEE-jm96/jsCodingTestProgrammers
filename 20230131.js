@@ -1,24 +1,23 @@
 function solution(N, stages) {
-    const stagesLength = stages.length;
-    let answer = [];
-    let failArr = [];
-    let obj = {};
+    const answer = [];
+    const failArr = [];
+    const obj = {};
     let compareScore = 2;
 
     stages.sort((a, b) => a - b);
 
     for(let i = 0; i < N; i++){
-        let filterData = stages.filter(item => item < compareScore);
+        const filterData = stages.filter(item => item < compareScore);
         failArr.push(filterData.length / stages.length);
         stages.splice(0, filterData.length)
         compareScore++;
     }
     
-    failArr.map((item, idx) => {
+    failArr.map((item,idx) => {
         obj[idx + 1] = item;
     })
     
-    let sortedArr = Object.entries(obj).sort((a, b) => b[1] - a[1]);
+    const sortedArr = Object.entries(obj).sort((a, b) => b[1] - a[1]);
 
     for(let element of sortedArr) {
         answer.push(Number(element[0]))
