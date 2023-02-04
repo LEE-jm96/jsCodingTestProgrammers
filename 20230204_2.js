@@ -14,7 +14,6 @@ t와 p는 숫자로만 이루어진 문자열이며, 0으로 시작하지 않습
 function solution(t, p) {
     let answer = 0;
     const temp = [];
-    const eleLength = p.length;
     
     for(let i = 0; i < t.length; i++){
         temp.push(t.split("").splice(i, p.length))
