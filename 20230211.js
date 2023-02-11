@@ -17,7 +17,7 @@ function solution(n) {
     let oneCnt = 0;
     let compareN = n + 1;
     
-    for(let i = 0; i <  n.toString(2).length; i++){
+    for(let i = 0; i < n.toString(2).length; i++){
         if(n.toString(2)[i] === "1") oneCnt++;
     }
     
