@@ -13,7 +13,7 @@ n은 1 이상, 2000 이하인 정수입니다.
 */
 
 function solution(n) {
-    const dp = new Array(n).fill(0);
+    const dp = Array.from({length: n}).fill(0);
     dp[0] = 1;
     dp[1] = 2;
     
