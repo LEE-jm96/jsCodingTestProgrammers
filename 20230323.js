@@ -25,10 +25,10 @@ function solution(n, s) {
         const rest = s % n;
         answer = new Array(n).fill(share);
         
-        for(let i = 0; i < rest; i++){
+        for(let i = answer.length - 1; i > answer.length - 1 - rest; i--){
             answer[i]++;
         }
     }
    
-    return answer.sort((a, b) => a - b);
+    return answer;
 }
