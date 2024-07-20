@@ -26,7 +26,7 @@ function solution(queue1, queue2) {
         answer++;
     }
     
-    return answer
+    return answer;
 }
 
 /*
