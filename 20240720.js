@@ -11,12 +11,12 @@ function solution(queue1, queue2) {
     
     while(queue1Sum !== queue2Sum) {
         if(queue2Sum > queue1Sum) {
-            queue1.push(queue2[queue2Idx])
+            queue1.push(queue2[queue2Idx]);
             queue1Sum += queue2[queue2Idx]; 
             queue2Sum -= queue2[queue2Idx];
             queue2Idx++; // queue1에 0번째 원소를 주기 때문에 queue2에서 shift()메소드를 사용했으나 시간복잡도가 O(n)이기 때문에 시간제한에 걸려 인덱스로 접근
         } else if(queue1Sum > queue2Sum) {
-            queue2.push(queue1[queue1Idx])
+            queue2.push(queue1[queue1Idx]);
             queue2Sum += queue1[queue1Idx];
             queue1Sum -= queue1[queue1Idx];
             queue1Idx++;
