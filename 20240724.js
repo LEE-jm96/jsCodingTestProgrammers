@@ -10,9 +10,7 @@ function solution(s) {
       }
       startIdx++;
   }
-
-  if (answer.length === 0) return 0;
-  return answer.reduce((acc, cur) => acc + cur);
+  return answer.length === 0 ? 0 : answer.reduce((acc, cur) => acc + cur);
 }
 
 /*
