@@ -1,4 +1,4 @@
-solution = (s) => {
+function solution(s) {
   const answer = [];
   s = s.split(" ");
   let startIdx = 0;
