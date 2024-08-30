@@ -1,6 +1,6 @@
 function solution(phone_book) {
-    let answer = true;
     phone_book.sort();
+    let answer = true;
     
     for(let i = 0; i < phone_book.length-1; i++) {
         for(let j = i+1; j < i+2; j++) {
