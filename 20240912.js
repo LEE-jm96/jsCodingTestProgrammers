@@ -4,7 +4,7 @@ function solution(skill, skill_trees) {
     
     skill_trees.forEach(skill => {
         const compareSkill = [...skillArr];
-        const filteredSkills = skill.split("").filter(compareSkill => skillArr.includes(compareSkill));
+        const filteredSkills = skill.split("").filter(data => skillArr.includes(data));
 
         compareSkill.length = filteredSkills.length;
         if (compareSkill.toString() === filteredSkills.toString()) {
