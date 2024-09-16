@@ -10,7 +10,7 @@ function solution(video_len, pos, op_start, op_end, commands) {
     
     commands.forEach((command) => {
         if (command === "next") {
-            pos = getCustomTime(pos, "add"); 
+            pos = getAdjustedTime(pos, "add"); 
             if (pos > video_len) {
                 pos = video_len;
             } 
@@ -18,7 +18,7 @@ function solution(video_len, pos, op_start, op_end, commands) {
             if (pos < "0010") {
                 pos = "0000";
             } else {
-                pos = getCustomTime(pos, "minus");   
+                pos = getAdjustedTime(pos, "minus");   
             }
         }
         
@@ -30,7 +30,7 @@ function solution(video_len, pos, op_start, op_end, commands) {
     return `${pos.slice(0, 2)}:${pos.slice(2, 4)}`;
 }
 
-const getCustomTime = (pos, type) => {
+const getAdjustedTime = (pos, type) => {
     const hours = Number(pos.slice(0, 2));
     const minutes = Number(pos.slice(2, 4));  
 
