@@ -4,11 +4,10 @@ function solution(arrayA, arrayB) {
     let answer = 0;
     
     for (let i = 2; i <= limitNum; i++) {
-        if (arrayA.every(num => num % i === 0) && arrayB.every(num => num % i !== 0)) {
+        if ((arrayA.every(num => num % i === 0) && arrayB.every(num => num % i !== 0)) || 
+           (arrayB.every(num => num % i === 0) && arrayA.every(num => num % i !== 0))) {
             answer = i;
-        } else if (arrayB.every(num => num % i === 0) && arrayA.every(num => num % i !== 0)) {
-            answer = i;
-        }
+        } 
     }
     
     return answer;
