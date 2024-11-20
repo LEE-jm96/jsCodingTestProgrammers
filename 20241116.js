@@ -30,7 +30,8 @@ function solution(plans) {
                     remainingTime = 0;
                 }
             }
-        } else { // 현재 과제 중단 후 스택에 저장
+        } else { 
+            // 현재 과제 중단 후 스택에 저장
             stopPlan.push([planName, startTime + takeTime - nextStartTime]);
         }
     }
