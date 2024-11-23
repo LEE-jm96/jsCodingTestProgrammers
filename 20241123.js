@@ -24,12 +24,12 @@ function solution(friends, gifts) {
     const giftEntries = Object.entries(giftInfo);
 
     giftEntries.forEach(giftEntry => {
-        const [sender, sendObj] = giftEntry;
-        const sendEntry = Object.entries(sendObj);
+        const [sender, receiveObj] = giftEntry; // 준 사람, 받은 사람
+        const receiveEntry = Object.entries(receiveObj);
         let receiveGiftNum = 0;
         
-        for (let i = 0; i < sendEntry.length; i++) {
-            const [receiver, receiveCnt] = sendEntry[i];
+        for (let i = 0; i < receiveEntry.length; i++) {
+            const [receiver, receiveCnt] = receiveEntry[i];
             const sendCnt = giftInfo[receiver][sender];
             
             if (receiveCnt > sendCnt) {
@@ -42,7 +42,7 @@ function solution(friends, gifts) {
         }
         
         receiveGift.push(receiveGiftNum);
-    })
+    });
     
     return Math.max(...receiveGift);
 }
