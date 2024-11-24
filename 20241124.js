@@ -7,7 +7,7 @@ function solution(cacheSize, cities) {
     cities.forEach(city => {
         city = city.toLowerCase();
         if (!cache.includes(city)) {
-            if (cache.length === cacheSize) LRU.shift(); 
+            if (cache.length === cacheSize) cache.shift(); 
             duration += 5;
         } else {
             cache.splice(cache.indexOf(city), 1);
