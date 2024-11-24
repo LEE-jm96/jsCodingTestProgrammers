@@ -1,20 +1,20 @@
 function solution(cacheSize, cities) {
     if (cacheSize === 0) return cities.length * 5;
     
-    const LRU = [];
+    const cache = [];
     let duration = 0;
     
     cities.forEach(city => {
         city = city.toLowerCase();
-        if (!LRU.includes(city)) {
-            if (LRU.length === cacheSize) LRU.shift(); 
+        if (!cache.includes(city)) {
+            if (cache.length === cacheSize) LRU.shift(); 
             duration += 5;
         } else {
-            LRU.splice(LRU.indexOf(city), 1);
+            cache.splice(cache.indexOf(city), 1);
             duration += 1;
         }
         
-        LRU.push(city);
+        cache.push(city);
     })
     
     return duration;
